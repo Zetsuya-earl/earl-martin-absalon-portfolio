@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Absalon e-Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#070d17;--panel:#0d1624;--line:#26334a;--ink:#f4efe9;--mute:#b4bfd0;--red:#ff4455;--teal:#4ff0dc;--tealdim:#12343a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Inter,system-ui,sans-serif;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px)}
+h1,h2,h3{font-family:Rajdhani,Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.05;margin:0}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:12px;font:700 20px Rajdhani,sans-serif;letter-spacing:.35em}
+.logo i{width:22px;height:22px;background:var(--red);transform:rotate(45deg) scale(.8)}
+nav{display:flex;overflow-x:auto;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:1 0 auto;background:none;border:0;border-bottom:3px solid transparent;color:var(--mute);padding:12px 18px;cursor:pointer;text-align:center;font:600 18px Rajdhani,sans-serif;letter-spacing:.2em}
+nav button small{display:block;font-size:12px;letter-spacing:.2em;opacity:.8}
+nav button[aria-selected=true]{color:var(--ink);border-color:var(--red)}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+main{max-width:860px;margin:0 auto;padding:28px 20px 60px}
+section{display:none}section.on{display:block}
+.kicker{color:var(--teal);font:600 16px Rajdhani,sans-serif;letter-spacing:.3em;display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.kicker::before{content:"";width:40px;height:2px;background:var(--teal)}
+.kicker.r{color:var(--red)}.kicker.r::before{background:var(--red)}
+h1{font-size:clamp(46px,12vw,92px);font-weight:700}
+h2{font-size:clamp(34px,8vw,54px);margin-bottom:22px}
+.badge{display:inline-block;background:var(--red);color:#fff;font:700 18px Rajdhani,sans-serif;letter-spacing:.2em;padding:6px 16px;margin:14px 0 6px}
+.sub{font:600 20px Rajdhani,sans-serif;letter-spacing:.2em;color:var(--teal);margin:0 0 22px;text-transform:uppercase}
+.card{background:var(--panel);border:1px solid var(--line);padding:22px;margin-bottom:18px}
+.card h3{font-size:15px;letter-spacing:.3em;color:var(--mute);margin-bottom:12px}
+.hero{display:grid;gap:28px;margin-bottom:10px}
+@media(min-width:760px){.hero{grid-template-columns:260px 1fr;align-items:center}}
+.portrait{position:relative;border:1px solid var(--line);background:var(--panel);aspect-ratio:3/4;display:grid;place-items:center;border-bottom:3px solid var(--red);max-width:300px;overflow:hidden}
+.portrait svg{width:70%;color:#1c2b44}
+.portrait span{position:absolute;bottom:14px;font:600 14px Rajdhani,sans-serif;letter-spacing:.3em;color:var(--mute)}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.lvl{position:absolute;top:0;left:0;background:var(--teal);color:#05221f;font:700 16px Rajdhani,sans-serif;letter-spacing:.2em;padding:4px 12px}
+.lead{max-width:60ch;color:var(--mute)}.lead strong{color:var(--ink);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid #1d6b66;background:var(--tealdim);color:var(--teal);padding:6px 14px;font-weight:500}
+ul.goals{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+ul.goals li{display:flex;gap:14px}
+ul.goals li::before{content:"";flex:0 0 14px;height:14px;margin-top:7px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--panel),inset 0 0 0 5px var(--red);border:3px solid var(--red)}
+.sem{color:var(--red);font:700 20px Rajdhani,sans-serif;letter-spacing:.2em;margin:6px 0 16px;text-transform:uppercase}
+.course{display:flex;gap:14px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:20px}
+.course b{background:var(--teal);color:#05221f;font:700 18px Rajdhani,sans-serif;letter-spacing:.12em;padding:4px 12px}
+.course h3{font-size:clamp(22px,5vw,30px)}
+.art{background:var(--panel);border:1px solid var(--line);margin-bottom:24px}
+.slot{position:relative;min-height:190px;display:grid;place-items:center;background:repeating-linear-gradient(135deg,#1a2335 0 14px,#151d2d 14px 28px);color:var(--mute);font:600 17px Rajdhani,sans-serif;letter-spacing:.35em;text-transform:uppercase;text-align:center;padding:20px}
+.slot em{position:absolute;top:0;left:0;z-index:1;background:var(--red);color:#fff;font-style:normal;font-weight:700;letter-spacing:.2em;padding:6px 14px}
+.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.body{padding:22px}.body h3{font-size:28px}
+.date{color:var(--teal);font:600 17px Rajdhani,sans-serif;letter-spacing:.25em;margin:6px 0 16px}
+.lab{font:600 13px Rajdhani,sans-serif;letter-spacing:.3em;color:var(--mute);text-transform:uppercase;margin:18px 0 6px}
+.body p{margin:0;color:#d3dbe8}
+.so{border-left:3px solid var(--teal);background:#0f2830;color:var(--teal)!important;padding:10px 14px}
+.refl{font-style:italic}
+.tag{background:var(--red);color:#fff;font:700 16px Rajdhani,sans-serif;letter-spacing:.2em;padding:3px 12px;display:inline-block}
+.meta{display:flex;gap:14px;align-items:center;margin:10px 0 14px;color:var(--mute);letter-spacing:.15em}
+.skills{display:grid;gap:14px}
+.sk{display:grid;grid-template-columns:160px 1fr;gap:14px;align-items:center}
+.bar{height:10px;background:#18233a;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--teal))}
+@media(max-width:480px){.sk{grid-template-columns:1fr;gap:6px}}
+.empty{color:var(--mute)}
+/* editing */
+.edbtn{background:none;border:1px solid var(--teal);color:var(--teal);padding:8px 16px;font:600 16px Rajdhani,sans-serif;letter-spacing:.2em;cursor:pointer}
+.ed{border:1px solid var(--line);background:#0a111d;padding:14px;margin:0 0 14px}
+label{display:block;margin:0 0 12px;color:var(--mute);font-size:14px}
+input,textarea{width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--line);padding:10px;font:inherit;margin-top:4px}
+.btn{background:var(--panel);color:var(--ink);border:1px solid var(--line);padding:9px 18px;font:600 16px Rajdhani,sans-serif;letter-spacing:.15em;cursor:pointer;margin:0 8px 8px 0}
+.btn.p{background:var(--red);border-color:var(--red);color:#fff}
+.btn.d{color:var(--red);border-color:var(--red)}
+#login{position:fixed;inset:0;z-index:20;background:rgba(3,7,13,.88);display:grid;place-items:center;padding:20px}
+.lbox{width:100%;max-width:380px;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--red);padding:24px}
+.savebar{position:sticky;bottom:0;background:var(--bg);padding:12px 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+#msg{color:var(--mute);font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="logo"><i></i>E-PORTFOLIO</div><button class="edbtn" id="editBtn">LOGIN</button></header>
+<div id="login" hidden><div class="lbox" role="dialog" aria-modal="true" aria-labelledby="lt"><h2 id="lt" style="font-size:32px;margin-bottom:14px">Owner login</h2><label>Username<input id="lu" autocomplete="username" autocapitalize="none"></label><label>Password<input id="lp" type="password" autocomplete="current-password"></label><p id="lm" role="alert" style="min-height:1.4em;margin:0 0 10px;color:var(--red);font-size:14px"></p><button class="btn p" id="lgo">Log in</button><button class="btn" id="lx">Cancel</button></div></div>
+<nav role="tablist" aria-label="Portfolio sections"></nav>
+<main id="app"></main>
+<main id="ed" hidden=""></main>
+
+<script type="application/json" id="data">{"me":{"name":"Earl Martin Absalon","section":"101G","year":"1st Year","program":"BS Computer Engineering","school":"JRU","photo":"/_blob/185cb9e3cb98f3f38cb2a5cb15f98dfb","purpose":"This e-portfolio collects my coursework, organization involvement, and skills as a CpE student at JRU.","expect":"Follow along to see how I grow from rookie engineer to licensed Computer Engineer.","bio":"I am a Computer Engineering student who loves building things that blend hardware and software.","background":"Graduated senior high school under the STEM strand. Currently in my first year of BS Computer Engineering.","interests":["Embedded Systems","Game Development","UI Design"],"goals":["Become a licensed Computer Engineer","Build a working IoT project before graduation","Join a hackathon every school year"]},"acts":[{"sem":"1st Semester, SY 2026-2027","courses":[{"code":"CPE C101","name":"Computer Engineering as a Discipline","artifacts":[{"title":"My Vision Board","date":"Aug. 22, 2026","img":"","link":"","desc":"A visual board of my goals as a future Computer Engineer.","so":"SO7 – Acquire and apply new knowledge as needed","refl":"Creating this helped me turn vague goals into concrete targets, like building an IoT project before graduation. It gave me a direction to measure my progress against, and it clarified where I want to be in five years."},{"title":"Designing an Ideal Social Media App – Design Thinking Task","date":"Sept. 21, 2026","img":"","link":"","desc":"Add a description of your app here, plus a link to your wireframe or prototype video.","so":"Choose the student outcome that fits best","refl":"Add what you learned and how it contributes to your personal goals."},{"title":"Mini CpE Project","date":"Nov. 9, 2026","img":"","link":"","desc":"Add your project description, plus links to the documentation and demo.","so":"Choose the student outcome that fits best","refl":"Add what you learned and how it contributes to your personal goals."}]}]}],"squads":[{"name":"Computer Engineering Society","role":"Member","sy":"SY 2026-2027","img":"","desc":"Joined workshops and org events for CpE students.","refl":"Add your reflection: your role, what you learned, and how it contributes to your personal goals."}],"accolades":[{"title":"Certificate placeholder","status":"To be earned","desc":"Competitions, workshops, and seminars will be added here as my CpE journey continues.","img":""}],"skills":{"tech":[{"n":"C / C++","p":30},{"n":"Electronics","p":25},{"n":"Arduino","p":20},{"n":"UI Design","p":35}],"soft":[{"n":"Communication","p":50},{"n":"Analytical thinking","p":55},{"n":"Design thinking","p":40}]}}</script>
+
+<script>
+const SRC="<!DOCTYPE html>\n"+document.documentElement.outerHTML;
+let D=JSON.parse(document.getElementById("data").textContent);
+const ORIG=JSON.stringify(D);
+let ART=null,ASSETS=null;
+const e=s=>String(s??"").replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+const get=p=>p.split(".").reduce((a,k)=>a?.[k],D);
+const set=(p,v)=>{const k=p.split(".");const l=k.pop();get(k.join("."))[l]=v};
+const TABS=[["lobby","Lobby","Welcome"],["agent","Agent","About me"],["acts","Acts","Artifacts"],["squads","Squads","Orgs"],["arsenal","Arsenal","Skills"]];
+const nav=document.querySelector("nav"),app=document.getElementById("app"),ed=document.getElementById("ed");
+const slot=(img,label,tag)=>`<div class="slot">${tag?`<em>${e(tag)}</em>`:""}${img?`<img src="${e(img)}" alt="${e(label)}">`:e(label)}</div>`;
+const person=`<svg viewBox="0 0 100 120" fill="currentColor" aria-hidden="true"><circle cx="50" cy="38" r="22"/><path d="M8 120c0-30 18-48 42-48s42 18 42 48z"/></svg>`;
+const bars=l=>l.length?l.map(x=>`<div class="sk"><span>${e(x.n)}</span><div class="bar" role="img" aria-label="${e(x.n)} ${x.p} percent"><i style="width:${x.p}%"></i></div></div>`).join(""):`<p class="empty">Nothing here yet.</p>`;
+
+const V={
+lobby:()=>{const m=D.me;return `<div class="hero"><div class="portrait"><div class="lvl">LVL 1</div>${person}<span>ROOKIE ENGINEER</span></div><div>
+<div class="kicker">Welcome, agent</div><h1>${e(m.name)}</h1><div class="badge">${e(m.program)}</div>
+<p class="sub">${e(m.section)} – ${e(m.year)}</p>
+<p class="lead"><strong>${e(m.purpose)}</strong></p><p class="lead">${e(m.expect)}</p></div></div>`},
+agent:()=>{const m=D.me;return `<div class="kicker r">About me</div><h2>Agent profile</h2>
+<div class="hero"><div class="portrait">${m.photo?`<img src="${e(m.photo)}" alt="Portrait of ${e(m.name)}">`:`${person}<span>ADD PHOTO</span>`}</div>
+<div><div class="card"><h3>Biography</h3><p style="margin:0">${e(m.bio)}</p></div><div class="card"><h3>Background</h3><p style="margin:0;color:var(--mute)">${e(m.background)}</p></div></div></div>
+<div class="card"><h3>Interests</h3><div class="chips">${m.interests.map(i=>`<span class="chip">${e(i)}</span>`).join("")}</div></div>
+<div class="card"><h3>Goals</h3><ul class="goals">${m.goals.map(g=>`<li>${e(g)}</li>`).join("")}</ul></div>`},
+acts:()=>`<div class="kicker r">Learning artifacts</div><h2>Acts</h2>`+(D.acts.map(s=>`<div class="sem">${e(s.sem)}</div>`+s.courses.map(c=>`<div class="course"><b>${e(c.code)}</b><h3>${e(c.name)}</h3></div>`+c.artifacts.map((a,i)=>`<article class="art">${slot(a.img,"No intel yet","Mission "+String(i+1).padStart(2,"0"))}<div class="body"><h3>${e(a.title)}</h3><div class="date">${e(a.date)}</div>
+<div class="lab">Description</div><p>${e(a.desc)}${a.link?` <a href="${e(a.link)}" style="color:var(--teal)" target="_blank" rel="noopener">View link</a>`:""}</p>
+<div class="lab">Outcome demonstrated</div><p class="so">${e(a.so)}</p><div class="lab">Reflection</div><p class="refl">${e(a.refl)}</p></div></article>`).join("")).join("")).join("")||`<p class="empty">No artifacts yet.</p>`),
+squads:()=>`<div class="kicker r">Organizational involvement &amp; engagement</div><h2>Squads</h2>`+(D.squads.map(s=>`<article class="art">${slot(s.img,"Add evidence")}<div class="body"><h3>${e(s.name)}</h3><div class="meta"><span class="tag">${e(s.role)}</span>${e(s.sy)}</div><p>${e(s.desc)}</p><div class="lab">Reflection</div><p class="refl">${e(s.refl)}</p></div></article>`).join("")||`<p class="empty">No organizations yet.</p>`),
+arsenal:()=>`<div class="kicker r">Achievements &amp; skills</div><h2>Arsenal</h2><div class="lab">Accolades</div>`+D.accolades.map(a=>`<article class="art">${slot(a.img,"Locked")}<div class="body"><h3>${e(a.title)}</h3><div class="date">${e(a.status)}</div><p>${e(a.desc)}</p></div></article>`).join("")+`<div class="card"><h3>Technical skills</h3><div class="skills">${bars(D.skills.tech)}</div></div><div class="card"><h3>Soft skills</h3><div class="skills">${bars(D.skills.soft)}</div></div>`
+};
+function render(){
+  nav.innerHTML=TABS.map(([id,t,s])=>`<button role="tab" id="t-${id}" data-id="${id}">${t}<small>${s}</small></button>`).join("");
+  app.innerHTML=TABS.map(([id])=>`<section id="s-${id}" role="tabpanel">${V[id]()}</section>`).join("");
+  document.title="Absalon e-Portfolio";show(location.hash.slice(1),true);
+}
+function show(id,keep){
+  if(!V[id])id="lobby";
+  TABS.forEach(([t])=>{document.getElementById("s-"+t).classList.toggle("on",t===id);document.getElementById("t-"+t).setAttribute("aria-selected",t===id)});
+  if(!keep)window.scrollTo(0,0);
+}
+nav.addEventListener("click",ev=>{const b=ev.target.closest("button");if(b)location.hash=b.dataset.id});
+addEventListener("hashchange",()=>show(location.hash.slice(1)));
+
+/* ---------- editor ---------- */
+const F=(p,l,t="t")=>{const v=get(p),a=`data-p="${p}"`;
+ if(t==="a")return `<label>${l}<textarea ${a} rows="3">${e(v)}</textarea></label>`;
+ if(t==="l")return `<label>${l} (one per line)<textarea ${a} data-l="1" rows="3">${e(v.join("\n"))}</textarea></label>`;
+ if(t==="n")return `<label>${l} (0 to 100)<input type="number" min="0" max="100" ${a} data-n="1" value="${v}"></label>`;
+ if(t==="i")return `<label>${l} (paste an image link${ASSETS?" or upload below":""})<input ${a} value="${e(v)}">${ASSETS?`<input type="file" accept="image/*" data-up="${p}">`:""}</label>`;
+ return `<label>${l}<input ${a} value="${e(v)}"></label>`};
+const L=(p,title,item)=>`<div class="card"><h3>${title}</h3>${get(p).map((x,i)=>`<div class="ed">${item(p+"."+i)}<button class="btn d" data-del="${p}:${i}">Remove</button></div>`).join("")}<button class="btn" data-add="${p}">Add</button></div>`;
+const NEW={acts:()=>({sem:"New semester",courses:[]}),courses:()=>({code:"CODE",name:"Course name",artifacts:[]}),artifacts:()=>({title:"New artifact",date:"",img:"",link:"",desc:"",so:"",refl:""}),squads:()=>({name:"Organization",role:"Member",sy:"",img:"",desc:"",refl:""}),accolades:()=>({title:"Certificate",status:"",desc:"",img:""}),tech:()=>({n:"Skill",p:30}),soft:()=>({n:"Skill",p:30})};
+function editor(){
+ const m=(k,l,t)=>F("me."+k,l,t);
+ const bar=`<div class="savebar"><button class="btn p" data-save>Save changes</button><button class="btn" data-cancel>Cancel</button><span id="msg"></span></div>`;
+ const sk=p=>q=>F(q+".n","Skill")+F(q+".p","Level","n");
+ return `<div class="kicker r">Owner mode</div><h2>Edit content</h2>
+<div class="card"><h3>Profile</h3>${m("name","Name")}${m("section","Section")}${m("year","Year level")}${m("program","Program")}${m("school","School")}${m("photo","Professional photo","i")}${m("purpose","Purpose of this e-portfolio","a")}${m("expect","What readers will learn","a")}${m("bio","Biography","a")}${m("background","Background","a")}${m("interests","Interests","l")}${m("goals","Goals","l")}</div>`
+ +L("acts","Semesters",p=>F(p+".sem","Semester and school year")+L(p+".courses","Courses",q=>F(q+".code","Course code")+F(q+".name","Course name")+L(q+".artifacts","Artifacts",r=>F(r+".title","Title")+F(r+".date","Date")+F(r+".img","Image","i")+F(r+".link","Link to prototype, documentation or demo")+F(r+".desc","Description","a")+F(r+".so","Student outcome demonstrated")+F(r+".refl","Reflection","a"))))
+ +L("squads","Organizations",p=>F(p+".name","Organization")+F(p+".role","Role")+F(p+".sy","School year")+F(p+".img","Evidence image","i")+F(p+".desc","Description","a")+F(p+".refl","Reflection","a"))
+ +L("accolades","Accolades",p=>F(p+".title","Title")+F(p+".status","Status or date")+F(p+".desc","Description","a")+F(p+".img","Certificate image","i"))
+ +L("skills.tech","Technical skills",sk())+L("skills.soft","Soft skills",sk())+bar;
+}
+function openEd(){app.hidden=true;nav.hidden=true;ed.hidden=false;ed.innerHTML=editor();window.scrollTo(0,0)}
+function closeEd(){ed.hidden=true;app.hidden=false;nav.hidden=false;render()}
+ed.addEventListener("input",ev=>{const t=ev.target,p=t.dataset.p;if(!p)return;let v=t.value;if(t.dataset.l)v=v.split("\n").map(s=>s.trim()).filter(Boolean);if(t.dataset.n)v=Math.max(0,Math.min(100,+v||0));set(p,v)});
+ed.addEventListener("change",async ev=>{const t=ev.target,p=t.dataset.up;if(!p||!t.files[0]||!ASSETS)return;
+ const msg=document.getElementById("msg");msg.textContent="Uploading image...";
+ try{const r=await ASSETS.upload(t.files[0]);set(p,r.url);ed.innerHTML=editor();document.getElementById("msg").textContent="Image added. Save changes to keep it."}catch(x){msg.textContent="Upload failed: "+(x.message||x.code||"try a smaller image")} });
+ed.addEventListener("click",async ev=>{const b=ev.target.closest("button");if(!b)return;
+ if(b.dataset.add){get(b.dataset.add).push(NEW[b.dataset.add.split(".").pop()]());ed.innerHTML=editor()}
+ else if(b.dataset.del){const[p,i]=b.dataset.del.split(":");get(p).splice(+i,1);ed.innerHTML=editor()}
+ else if(b.dataset.cancel!==undefined){D=JSON.parse(ORIG);closeEd()}
+ else if(b.dataset.save!==undefined){
+  const msg=document.getElementById("msg");msg.textContent="Saving...";
+  const j=JSON.stringify(D).replace(/</g,"\\u003c");
+  const out=SRC.replace(/(<script type="application\/json" id="data">)[\s\S]*?(<\/script>)/,(m,a,c)=>a+j+c);
+  try{await ART.publish(out)}catch(x){msg.textContent=x.code==="conflict"?"Someone saved first. The page will reload.":"Could not save: "+(x.message||x.code||"try again")}
+ }});
+const HASH="dca2a56b06f18b4e9ee92d3b10ebfdc2aec4ed640d3264675e65673d0996a9e8";
+const $=id=>document.getElementById(id);
+async function sha(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+function openLogin(){$("lm").textContent="";$("lp").value="";$("login").hidden=false;$("lu").focus()}
+$("editBtn").addEventListener("click",openLogin);
+$("lx").addEventListener("click",()=>{$("login").hidden=true});
+$("login").addEventListener("keydown",ev=>{if(ev.key==="Enter")$("lgo").click();if(ev.key==="Escape")$("lx").click()});
+$("lgo").addEventListener("click",async()=>{
+  const m=$("lm");m.textContent="";
+  try{
+    const h=await sha("portfolio-salt:"+$("lu").value.trim().toLowerCase()+":"+$("lp").value);
+    if(h!==HASH){m.textContent="Wrong username or password.";return}
+  }catch(x){m.textContent="Login is not available in this browser.";return}
+  if(!ART){m.textContent="Login worked, but web editing only works on the Claude link. In this file, edit the JSON data block near the top of the HTML.";return}
+  $("login").hidden=true;openEd();
+});
+
+render();
+(async()=>{try{
+  const [a,u,s]=await Promise.all([claude.use("artifact"),claude.use("user"),claude.use("assets")]);
+  if(a&&u&&u.canEdit()){ART=a;ASSETS=s}
+}catch(x){}})();
+</script></body></html>
