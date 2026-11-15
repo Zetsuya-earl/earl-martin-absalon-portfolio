@@ -68,7 +68,6 @@ ul.goals li::before{content:"";flex:0 0 14px;height:14px;margin-top:7px;border-r
 .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--teal))}
 @media(max-width:480px){.sk{grid-template-columns:1fr;gap:6px}}
 .empty{color:var(--mute)}
-/* editing */
 .edbtn{background:none;border:1px solid var(--teal);color:var(--teal);padding:8px 16px;font:600 16px Rajdhani,sans-serif;letter-spacing:.2em;cursor:pointer}
 .ed{border:1px solid var(--line);background:#0a111d;padding:14px;margin:0 0 14px}
 label{display:block;margin:0 0 12px;color:var(--mute);font-size:14px}
@@ -168,7 +167,7 @@ ed.addEventListener("click",async ev=>{const b=ev.target.closest("button");if(!b
   const msg=document.getElementById("msg");msg.textContent="Saving...";
   const j=JSON.stringify(D).replace(/</g,"\\u003c");
   const out=SRC.replace(/(<script type="application\/json" id="data">)[\s\S]*?(<\/script>)/,(m,a,c)=>a+j+c);
-  try{await ART.publish(out)}catch(x){msg.textContent=x.code==="conflict"?"Someone saved first. The page will reload.":"Could not save: "+(x.message||x.code||"try again")}
+  try{if(ART){await ART.publish(out)}else{const l=document.createElement("a");l.href=URL.createObjectURL(new Blob([out],{type:"text/html"}));l.download="absalon-eportfolio.html";l.click();msg.textContent="Downloaded the updated file. Upload it to your host to publish the changes."}}catch(x){msg.textContent=x.code==="conflict"?"Someone saved first. The page will reload.":"Could not save: "+(x.message||x.code||"try again")}
  }});
 const HASH="dca2a56b06f18b4e9ee92d3b10ebfdc2aec4ed640d3264675e65673d0996a9e8";
 const $=id=>document.getElementById(id);
@@ -183,8 +182,7 @@ $("lgo").addEventListener("click",async()=>{
     const h=await sha("portfolio-salt:"+$("lu").value.trim().toLowerCase()+":"+$("lp").value);
     if(h!==HASH){m.textContent="Wrong username or password.";return}
   }catch(x){m.textContent="Login is not available in this browser.";return}
-  if(!ART){m.textContent="Login worked, but web editing only works on the Claude link. In this file, edit the JSON data block near the top of the HTML.";return}
-  $("login").hidden=true;openEd();
+    $("login").hidden=true;openEd();
 });
 
 render();
